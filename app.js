@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 mongoose.set({
   strictQuery: true
 });
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.otvpdjb.mongodb.net/${process.env.DB_DATABASE}`);
 
 const itemSchema = new mongoose.Schema({
   name: String
