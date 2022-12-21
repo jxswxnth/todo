@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      <%= typeof title === undefined ? "Unknown Page" : title %>
+    </title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <h1><%= heading %></h1>
+    </div>
+    <div class="box opts" >
+      <a class="op" href="/">Tasks</a>
+      <a class="op" href="/work">Works</a>
+    </div>
