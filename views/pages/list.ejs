@@ -1,15 +1,17 @@
-<%-include("../partials/header", {title: "Task List"})-%>
+<%-include("../partials/header", {title: heading})-%>
     <div class="box">
-      <% for(var i=0;i<listOfTasks.length;i++){ %>
-        <div class="item">
-          <input type="checkbox">
-          <p><%= listOfTasks[i] %></p>
-        </div>
-      <% } %>
-
+      <% listOfItems.forEach((item)=>{ %>
+        <form action="/delete" method="post">
+          <div class="item">
+            <input type="checkbox" name="idToDelete" value=<%= item._id %>  onChange="this.form.submit()" >
+            <p><%= item.name %></p>
+          </div>
+          <input type="hidden" name="ListName" value=<%= heading %>></input>
+        </form>
+      <% }) %>
     <form class="item" action="/" method="post">
-      <input type="text" name="newTask" placeholder="                                               ✒️" autofocus autocomplete="off">
-      <button class="add" type="submit" name="taskORwork" value=<%= heading %>>+</button>
+      <input type="text" name="newItem" placeholder="add here..." autofocus autocomplete="off">
+      <button class="add" type="submit" name="toDoList" value=<%= heading %>>+</button>
     </form>
     </div>
 <%-include("../partials/footer")-%>

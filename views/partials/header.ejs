@@ -11,7 +11,8 @@
     <div class="box" id="heading">
       <h1><%= heading %></h1>
     </div>
-    <div class="box opts" >
-      <a class="op" href="/">Tasks</a>
-      <a class="op" href="/work">Works</a>
-    </div>
+    <% if(heading!=="Tasks"){ %>
+      <div class=" opts" >
+        <a class="op" href="/">Tasks</a>
+      </div>
+    <% } %>

@@ -8,6 +8,10 @@ html {
   font-family: 'helvetica neue';
 }
 
+body{
+  overflow: hidden;
+}
+
 h1 {
   color: #fff;
   padding: 10px;
@@ -15,7 +19,7 @@ h1 {
 
 .box {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 40px auto;
   background: white;
   border-radius: 20px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
@@ -33,17 +37,15 @@ h1 {
   font-size: 20px;
   padding: 10px 74px;
   border: none;
-  border-radius: 20px 0 0 20px;
-  color: var(--dark)
-  background-color: white;
+  border-radius: 20px;
+  color: white;
+  background-color: var(--dark);
   cursor: pointer;
 }
-.op:last-of-type{
-  border-radius: 0 20px 20px 0;
-}
+
 
 .op:hover{
-  font-size: 23px;
+  font-size: 21px;
   background-color: var(--dark);
   color: white;
 }
