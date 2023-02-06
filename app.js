@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const date = require(__dirname+"/date.js");
+const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 
@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT;
 const now = date.getDate();
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.set('view engine', 'ejs');
@@ -64,25 +64,25 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', (req,res)=>{
+app.post('/', (req, res) => {
   let item = req.body.newItem;
-  let todo = req.body.toDoList;
+  let todoList = req.body.toDoList;
 
   const newItem = new Item({
     name: item
   });
-  if (todo === "Tasks") {
+  if (todoList === "Tasks") {
     newItem.save();
     res.redirect('/');
   } else {
     List.findOne({
-      name: todo
+      name: todoList
     }, (err, foundList) => {
       if (!err) {
         if (foundList) {
           foundList.items.push(newItem);
           foundList.save();
-          res.redirect('/' + todo);
+          res.redirect('/' + todoList);
         }
       }
     });
